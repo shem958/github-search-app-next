@@ -41,7 +41,7 @@ const App: React.FC = () => {
 
   return (
     <div
-      className={`min-h-screen flex flex-col items-center justify-center ${
+      className={`min-h-screen flex flex-col items-center justify-center p-4 ${
         darkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
       }`}
     >

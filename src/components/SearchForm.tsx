@@ -15,18 +15,18 @@ const SearchForm: React.FC<SearchFormProps> = ({ onSearch }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex items-center bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md max-w-md mx-auto"
+      className="flex flex-col sm:flex-row items-center bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md max-w-md w-full mx-auto"
     >
       <input
         type="text"
         placeholder="Search Github username..."
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        className="flex-grow p-2 border rounded-l-lg focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+        className="flex-grow p-2 border rounded-lg sm:rounded-l-lg sm:rounded-r-none focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 w-full sm:w-auto mb-2 sm:mb-0"
       />
       <button
         type="submit"
-        className="px-4 py-2 bg-blue-500 text-white rounded-r-lg hover:bg-blue-600 focus:ring focus:ring-blue-300 transition-colors duration-200"
+        className="w-full sm:w-auto px-4 py-2 bg-blue-500 text-white rounded-lg sm:rounded-r-lg sm:rounded-l-none hover:bg-blue-600 focus:ring focus:ring-blue-300 transition-colors duration-200"
       >
         Search
       </button>
