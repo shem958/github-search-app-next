@@ -14,7 +14,7 @@ body {
 }
 
 body.light {
-  background: url('/light mode.jpg') no-repeat center center fixed;
+  background: url('/light.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #212121;
 }
