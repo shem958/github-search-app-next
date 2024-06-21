@@ -89,10 +89,21 @@ const App: React.FC = () => {
           </svg>
         )}
       </div>
-      <SearchForm onSearch={fetchUser} />
+
+      {/* Ensure spacing between SearchForm and UserCard */}
+      <div className="mt-8">
+        <SearchForm onSearch={fetchUser} />
+      </div>
+
       {loading && <div>Loading...</div>}
       {error && <div className="text-red-500">{error}</div>}
-      {user && <UserCard user={user} />}
+
+      {/* Ensure spacing between SearchForm and UserCard */}
+      {user && (
+        <div className="mt-8">
+          <UserCard user={user} />
+        </div>
+      )}
     </div>
   );
 };

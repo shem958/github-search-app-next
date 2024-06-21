@@ -28,8 +28,8 @@ const UserCard: React.FC<{ user: User | null }> = ({ user }) => {
 
   return (
     <div className="p-8 w-full bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md">
-      <div className="flex flex-col items-center space-y-4 md:flex-row md:space-x-6 md:space-y-0">
-        <div className="relative h-24 w-24 rounded-full overflow-hidden">
+      <div className="flex items-center space-x-4">
+        <div className="relative h-32 w-32 rounded-full overflow-hidden">
           <Image
             src={user.avatar_url}
             alt={`${user.name}'s avatar`}
@@ -37,8 +37,8 @@ const UserCard: React.FC<{ user: User | null }> = ({ user }) => {
             objectFit="cover"
           />
         </div>
-        <div className="text-center md:text-left">
-          <div className="text-2xl font-medium text-black dark:text-white">
+        <div className="flex-1">
+          <div className="text-xl font-medium text-black dark:text-white">
             {user.name}
           </div>
           <p className="text-gray-500 dark:text-gray-400">{user.login}</p>

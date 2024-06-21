@@ -13,6 +13,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.light {
+  background: url('/light mode.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #212121;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
