@@ -7,6 +7,7 @@ import {
   FaLink,
   FaGithub,
 } from "react-icons/fa";
+import { useTheme } from "../context/ThemeContext";
 
 interface User {
   avatar_url: string;
@@ -22,12 +23,18 @@ interface User {
 }
 
 const UserCard: React.FC<{ user: User | null }> = ({ user }) => {
+  const { darkMode } = useTheme();
+
   if (!user) {
     return null;
   }
 
   return (
-    <div className="p-8 w-full bg-gray-100 dark:bg-gray-800 rounded-xl shadow-md">
+    <div
+      className={`p-8 w-full rounded-xl shadow-md ${
+        darkMode ? "bg-gray-800 text-white" : "bg-white text-black"
+      }`}
+    >
       <div className="flex items-center space-x-4">
         <div className="relative h-32 w-32 rounded-full overflow-hidden">
           <Image
@@ -38,38 +45,61 @@ const UserCard: React.FC<{ user: User | null }> = ({ user }) => {
           />
         </div>
         <div className="flex-1">
-          <div className="text-xl font-medium text-black dark:text-white">
+          <div
+            className={`text-xl font-medium ${
+              darkMode ? "text-white" : "text-black"
+            }`}
+          >
             {user.name}
           </div>
-          <p className="text-gray-500 dark:text-gray-400">{user.login}</p>
+          <p
+            className={`text-gray-500 ${
+              darkMode ? "text-gray-400" : "text-gray-600"
+            }`}
+          >
+            {user.login}
+          </p>
         </div>
       </div>
       <div className="mt-4 space-y-4">
-        <p className="text-gray-500 dark:text-gray-400 flex items-center">
-          <FaGithub className="mr-2" /> <strong className="mr-1">Repos:</strong>{" "}
+        <p
+          className={`text-gray-500 flex items-center ${
+            darkMode ? "text-gray-400" : "text-gray-600"
+          }`}
+        >
+          <FaGithub className="mr-2" /> <strong>Repos:</strong>{" "}
           {user.public_repos}
         </p>
-        <p className="text-gray-500 dark:text-gray-400 flex items-center">
-          <strong className="mr-1">Followers:</strong> {user.followers}
+        <p
+          className={`text-gray-500 flex items-center ${
+            darkMode ? "text-gray-400" : "text-gray-600"
+          }`}
+        >
+          <strong>Followers:</strong> {user.followers}
         </p>
-        <p className="text-gray-500 dark:text-gray-400 flex items-center">
-          <strong className="mr-1">Following:</strong> {user.following}
+        <p
+          className={`text-gray-500 flex items-center ${
+            darkMode ? "text-gray-400" : "text-gray-600"
+          }`}
+        >
+          <strong>Following:</strong> {user.following}
         </p>
       </div>
-      <div className="mt-4 text-sm text-gray-500 dark:text-gray-400 space-y-1">
+      <div className="mt-4 text-sm text-gray-500 space-y-1">
         <p className="flex items-center">
-          <FaMapMarkerAlt className="mr-2" />{" "}
-          <strong className="mr-1">Location:</strong>{" "}
+          <FaMapMarkerAlt className="mr-2" /> <strong>Location:</strong>{" "}
           {user.location || "Not Available"}
         </p>
         <p className="flex items-center">
-          <FaLink className="mr-2" /> <strong className="mr-1">Blog:</strong>{" "}
+          <FaLink className="mr-2" /> <strong>Blog:</strong>{" "}
           {user.blog ? (
             <a
               href={user.blog}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 dark:text-blue-400"
+              className={`text-blue-500 ${
+                darkMode ? "dark:text-blue-400" : ""
+              }`}
             >
               {user.blog}
             </a>
@@ -78,19 +108,19 @@ const UserCard: React.FC<{ user: User | null }> = ({ user }) => {
           )}
         </p>
         <p className="flex items-center">
-          <FaBuilding className="mr-2" />{" "}
-          <strong className="mr-1">Company:</strong>{" "}
+          <FaBuilding className="mr-2" /> <strong>Company:</strong>{" "}
           {user.company || "Not Available"}
         </p>
         <p className="flex items-center">
-          <FaTwitter className="mr-2" />{" "}
-          <strong className="mr-1">Twitter:</strong>{" "}
+          <FaTwitter className="mr-2" /> <strong>Twitter:</strong>{" "}
           {user.twitter_username ? (
             <a
               href={`https://twitter.com/${user.twitter_username}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 dark:text-blue-400"
+              className={`text-blue-500 ${
+                darkMode ? "dark:text-blue-400" : ""
+              }`}
             >
               @{user.twitter_username}
             </a>
